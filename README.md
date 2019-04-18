@@ -25,10 +25,10 @@ $  fbx-conv [options] <input> [<output>]
 *   **`-w <size>`**			-The maximum amount of bone weights per vertex (default: 4)
 *   **`-v`**				-Verbose: print additional progress information
 
-### Example
+#### Example
 
 ``` bash
-$  fbx-conv-lin64 -o g3db myModel.obj convertedModel.g3db
+$  fbx-conv -o g3db myModel.obj convertedModel.g3db
 ```
 
 ## Building and installing
