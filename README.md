@@ -6,19 +6,16 @@ Command line utility using the FBX SDK to convert [FBX/Collada/Obj files](http:/
 to more runtime friendly formats. The FBX content is parsed into an
 in-memory datastructure. Pluggable writers then take this datastructure
 to generate the output. Send us a pull request if you want the writer
-for your engine/framework/app to be integrated. We'll build the
-converter for Windows, Linux and Mac.
-
-The FBX parser is largely based on GamePlay SDK's encoder. We'll try to 
-back-port any bug fixes or improvements.
+for your engine/framework/app to be integrated.
 
 ## Command-line Usage
 
-*   Windows - `fbx-conv-win32.exe [options] <input> [<output>]`
-*   Linux - `fbx-conv-lin64 [options] <input> [<output>]`
-*   Mac - `fbx-conv-mac [options] <input> [<output>]`
+``` bash
+$  fbx-conv [options] <input> [<output>]
+```
 
 ### Options/flags
+
 *   **`-?`**				-Display help information.
 *   **`-o <type>`**			-Set the type of the output file to <type>
 *   **`-f`**				-Flip the V texture coordinates.
@@ -29,10 +26,19 @@ back-port any bug fixes or improvements.
 *   **`-v`**				-Verbose: print additional progress information
 
 ### Example
-`fbx-conv-win32.exe -f -v myModel.fbx convertedModel.g3db`
 
-##Building
+``` bash
+$  fbx-conv-lin64 -o g3db myModel.obj convertedModel.g3db
+```
 
-You'll need premake and an installation of the FBX SDK 2014. Once installed/downloaded, set the
-FBX_SDK_ROOT to the directory where you installed the FBX SDK. Then run one of the 
-generate_XXX scripts. These will generate a Visual Studio/XCode project, or a Makefile.
+## Building and installing
+
+This verison only supports Linux.
+
+Download [FBX SDK 2014](https://www.autodesk.com/developer-network/platform-technologies/fbx-sdk-2014-2-1) and install it somewhere (`/path/to/fbx-sdk-2014`). Then, set the `FBX_SDK_ROOT` to the directory where you installed the FBX SDK, and finally make and install. Here is the full sequence:
+
+``` bash
+$  export FBX_SDK_ROOT=/path/to/fbx-sdk-2014
+$  make && sudo make install
+```
+
